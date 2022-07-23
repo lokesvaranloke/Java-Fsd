@@ -10,7 +10,7 @@ public class CreateFile {
 	public static void main(String[] args) {
 		
 		try {
-			File obj = new File("C:\\Javafd\\Java fsd\\Java-fsd\\FileHandling\\FilesStored\\TestFile1");
+			File obj = new File("C:\\Javafd\\Java fsd\\Java-fsd\\FileHandling\\FilesStored\\TestFile4");
 			if(obj.createNewFile()) {
 				System.out.println("File created : "+obj.getName());
 			} else {
