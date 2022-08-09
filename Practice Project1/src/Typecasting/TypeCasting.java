@@ -39,6 +39,8 @@ public class TypeCasting {
 		
 		int n = (int)d1;
 		System.out.println("int : "+n);
+		int n1 = (int)d1;
+		System.out.println("int : "+n1);
 	}
 
 }
