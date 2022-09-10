@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+ http://www.springframework.org/schema/beans/spring-beans.xsd
+ http://www.springframework.org/schema/context
+ http://www.springframework.org/schema/context/spring-context.xsd">
+ 
+ 	<!-- <bean name="emp" class="com.samples.S01springcoredi.Employee">
+		<property name="id">
+			<value>23</value>
+		</property>
+		<property name="name">
+			<value>John</value>
+		</property>
+	</bean>-->
+
+<!-- 	<bean name="emp" class="com.samples.S01springcoredi.Employee"
+		p:id="22" p:name="williams" />-->
+		
+		<bean name="emp" class="com.samples.S01springcoredi.Employee"
+		p:id="22" p:name="John">
+		<property name="address">
+			<bean class="com.samples.S01springcoredi.Address"
+				p:houseNumber="123" p:street="main street" p:city="NY" />
+		</property>
+	</bean>
+
+	<bean name="hospital" class="com.samples.S01springcoredi.Hospital">
+		<property name="name" value="Global Hospitals" />
+		<property name="departments">
+			<value>Casualty</value>
+		</property>
+	</bean>
+
+	<bean name="cardealer"
+		class="com.samples.S01springcoredi.CarDealer">
+		<property name="name" value="ABC Motors" />
+		<property name="models">
+			<set>
+				<value>Hyundai</value>
+				<value>Honda</value>
+				<value>Maruti</value>
+				<value>Hyundai</value>
+			</set>
+		</property>
+	</bean>
+	
+	
+	<bean name="customer"
+		class="com.samples.S01springcoredi.Customer" p:id="37">
+		<property name="products">
+			<map>
+				<entry key="100" value="IPhone" />
+				<entry key="200" value="Laptop" />
+				<entry key="300" value="Mobile" />
+				<entry key="400" value="Mouse" />
+				<entry key="500" value="Keyboard" />
+			</map>
+		</property>
+	</bean>
+	
+	<bean name="item" class="com.samples.S01springcoredi.Item" p:id="1" p:name="paint" p:price="2000" p:quantity="10"/>
+	<bean name="shoppingcart" class="com.samples.S01springcoredi.ShoppingCart" p:item-ref="item"/>
+	
+	<!-- <bean name="patient" class="com.samples.S01springcoredi.Patient"
+		p:id="11" init-method="methodOne" destroy-method="methodTwo" />-->
+		
+		
+		<bean name="patient" class="com.samples.S01springcoredi.Patient"
+		p:id="11"  />
+		<!-- the below line is used to call the methods and variables with postConstruct and predestroy annotations -->
+		<bean class="org.springframework.context.annotation.CommonAnnotationBeanPostProcessor"/>
+		
+		
+</beans>
